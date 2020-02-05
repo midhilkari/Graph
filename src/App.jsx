@@ -21,15 +21,20 @@ class App extends Component {
   }
   Invest = () => {
     PortfolioValue += 50;
+    var date = new Date();
+    var presentDate = date.toLocaleDateString();
+    console.log(presentDate);
     let data = [...this.state.data];
-    data.push({ name: "April", Portfolio_Value: PortfolioValue });
+    data.push({ name: presentDate, Portfolio_Value: PortfolioValue });
     this.setState({ data: data });
   };
 
   Sell = () => {
     PortfolioValue -= 50;
+    var date = new Date();
+    var presentDate = date.toLocaleDateString();
     let data = [...this.state.data];
-    data.push({ name: "April", Portfolio_Value: PortfolioValue });
+    data.push({ name: presentDate, Portfolio_Value: PortfolioValue });
     this.setState({ data: data });
   };
   render() {
