@@ -21,7 +21,14 @@ class App extends Component {
   }
   Invest = () => {
     PortfolioValue += 50;
-    var data = [...this.state.data];
+    let data = [...this.state.data];
+    data.push({ name: "April", Portfolio_Value: PortfolioValue });
+    this.setState({ data: data });
+  };
+
+  Sell = () => {
+    PortfolioValue -= 50;
+    let data = [...this.state.data];
     data.push({ name: "April", Portfolio_Value: PortfolioValue });
     this.setState({ data: data });
   };
@@ -30,6 +37,7 @@ class App extends Component {
       <div>
         <h1>Portfolio Value</h1>
         <button onClick={this.Invest}>Invest 50</button>
+        <button onClick={this.Sell}>Sell 50</button>
         <LineChart
           width={900}
           height={300}
