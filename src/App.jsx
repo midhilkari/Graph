@@ -16,29 +16,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
-      test: "hgahgd"
+      data: []
     };
   }
   Invest = () => {
     PortfolioValue += 50;
-    this.setState(function(state, props) {
-      let data = state.data;
-      console.log(data);
-      data.push({ name: "April", Portfolio_Value: PortfolioValue });
-      return {
-        data: data,
-        test: "rajesh"
-      };
-    });
+    var data = [...this.state.data];
+    data.push({ name: "April", Portfolio_Value: PortfolioValue });
+    this.setState({ data: data });
   };
   render() {
     return (
       <div>
         <h1>Portfolio Value</h1>
         <button onClick={this.Invest}>Invest 50</button>
-        <div>{this.state.test}</div>
-        <div>{this.state.data.toString()}</div>
         <LineChart
           width={900}
           height={300}
